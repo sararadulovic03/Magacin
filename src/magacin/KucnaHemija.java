@@ -15,7 +15,10 @@ public class KucnaHemija extends Artikl {
 		return rokTrajanja;
 	}
 
-	public void setRokTrajanja(LocalDate rokTrajanja) {
+	public void setRokTrajanja(LocalDate rokTrajanja) throws Exception {
+		if(rokTrajanja.isBefore(LocalDate.now())) {
+			throw new Exception("Rok trajanja ne sme da bude iz proslosti");
+		}
 		this.rokTrajanja = rokTrajanja;
 	}
 
